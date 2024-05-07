@@ -90,7 +90,4 @@ def run():
             iterator += 1
             time.sleep(1)
     except KeyboardInterrupt:
-        generateData(True)
-        
-if __name__ == "__main__":
-    run()
+        print(f"Last batch of data:\n{generateData(True)}")
