@@ -46,13 +46,9 @@ To get started with the project, follow these steps:
 3. **Setup Google Cloud Services:** If you intend to use Google Cloud Storage and Google Cloud Function, ensure you have the necessary permissions and credentials set up.
 4. **Install required dependencies:** If using Streamlit for visualization, ensure you have the required dependencies installed.
 
-## Contributing
-
-Contributions to this project are welcome! If you have ideas for improvements or would like to fix any issues, feel free to submit pull requests.
-
 ## Feedback
 
-We value your feedback! If you have any suggestions, questions, or encounter any issues with the project, please don't hesitate to open an issue or reach out to the project maintainers.
+Any feedback is valuable, there are no such thing as a bad feedback!
 
 ## License
 
