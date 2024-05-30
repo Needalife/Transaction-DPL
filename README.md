@@ -1,6 +1,6 @@
 # Engineering Experience Course: Bank Transaction Data Pipeline
 
-Welcome to the Engineering Experience Course project repository! This project represents a data pipeline for a bank's transactional data.
+Welcome to the Engineering Experience Course project repository! This project will illustrate a data pipeline for a bank's transactional data.
 
 ## Project Description
 
@@ -20,7 +20,7 @@ This project is a data pipeline for managing a bank's transactional data. The pi
 
 ## Technologies Used
 
-The following technologies are employed in this project:
+The following technologies are used in this project:
 
 ### Data Storage and Processing
 
