@@ -55,13 +55,19 @@ def getRandomType():
     ]
     random.shuffle(transaction_types)
     return transaction_types[0]
+
+def getEmail(name):
+    email_format = '@gmail.com'
+    return name.lower() + email_format 
     
 def generateData(isLast: bool):
+    name = getRandomName()
     data = {
         "transaction_id": f"{generateRandomID()}",
-        "name" : f"{getRandomName()}",
+        "name" : f"{name}",
         "type" : f"{getRandomType()}",
         "status" : f"{random.choice(['error','success','ongoing'])}",
+        "email": f"{getEmail(name)}",
         "timestamp": f"{datetime.now()}"
     }
     
