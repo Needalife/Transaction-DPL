@@ -55,8 +55,6 @@ if st.checkbox('Show raw data'):
     
 plotTransactionStatus(df)
 
-st.pie_chart(df)
-
 st.subheader('Type')
 
 
