@@ -3,11 +3,11 @@ import requests,os,sys,pymongo # type: ignore
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from utils.mongo import mongo
-from utils.gcp import readMongoURI
+from utils.gcp import gcp
 
 @st.cache_resource
 def connectMongo():
-    mongoHandler = mongo(readMongoURI(),'data')
+    mongoHandler = mongo(gcp.readMongoURI(),'data')
     return mongoHandler
 
 def getLatestRecords(records): #Don't cache data this, it will retrieve old data

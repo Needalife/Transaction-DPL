@@ -1,5 +1,5 @@
 import pymongo #type:ignore
-
+    
 class mongo:
     def __init__(self,uri,database) -> None:
         self.uri = uri
