@@ -19,6 +19,6 @@ if st.button("Generate data"):
         st.error("Please try again later")
     else:
         st.success(f"Successfully push {len(result)} transactions to GCS")
-        st.write(result)
+        st.json(result)
 else:
     st.code(" ")
