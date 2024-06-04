@@ -1,7 +1,10 @@
 import streamlit as st #type:ignore
 import requests #type:ignore
-from pydantic import BaseModel #type:ignore
-import streamlit_pydantic as sp #type:ignore
+try:
+    from pydantic import BaseModel #type:ignore
+    import streamlit_pydantic as sp #type:ignore
+except Exception as e:
+    print(e)
 
 @st.cache_data
 class form(BaseModel):
