@@ -44,7 +44,7 @@ with st.form("my_form"):
     age = st.number_input("Enter the object age")
     bucket = st.selectbox("engineering_experience")
     
-    submitted = st.form_submit_button("set")
+    submitted = st.form_submit_button("Submit")
     if submitted:
         invokeSetBucketLifeCycle(age,bucket)
 
