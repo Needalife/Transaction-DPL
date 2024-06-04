@@ -4,7 +4,6 @@ import requests,os,sys,pymongo # type: ignore
 from src.utils import mongo
 from src.utils import gcp
 
-@st.cache_resource
 def connectMongo():
     mongoHandler = mongo(gcp.readMongoURI(),'data')
     return mongoHandler
