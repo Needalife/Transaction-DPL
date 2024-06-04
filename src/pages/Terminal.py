@@ -30,7 +30,7 @@ if st.button("Generate data"):
     else:
         st.success(f"Successfully push {len(result)} transactions to GCS")
         st.code(result)
-    st.session_state['button1'] = not st.session_state['button1']
+    st.session_state['button1'] = result
 else:
     st.code(" ")
 
