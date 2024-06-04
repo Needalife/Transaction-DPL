@@ -38,13 +38,14 @@ if st.button("Generate data"):
         st.success(f"Successfully pushed {len(result)} transactions to GCS")
         st.code(result)
 
-with st.form("my_form"):
-    st.write("Bucket Lifecycle")
-    age = st.number_input("Enter object age lifecycle")
-    bucket = st.selectbox("Choose a bucket",("engineering_experience"," "))
-    
-    submitted = st.form_submit_button("set")
-    if submitted:
-        invokeSetBucketLifeCycle(age,bucket)
+if st.button("Set data lifecycle"):
+    with st.form("my_form"):
+        st.write("Bucket Lifecycle")
+        age = st.number_input("Enter object age lifecycle")
+        bucket = st.selectbox("Choose a bucket",("engineering_experience"," "))
+        
+        submitted = st.form_submit_button("set")
+        if submitted:
+            invokeSetBucketLifeCycle(age,bucket)
 
         
