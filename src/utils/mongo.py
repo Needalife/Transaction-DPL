@@ -1,7 +1,7 @@
 import pymongo #type:ignore
     
 class mongo:
-    def __init__(self,uri,database) -> None:
+    def __init__(self,uri,database):
         self.uri = uri
         self.client = pymongo.MongoClient(self.uri)   
         self.database = self.client[f'{database}']

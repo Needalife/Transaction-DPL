@@ -6,11 +6,11 @@ from src.utils import gcp
 
 def connectMongo():
     response = requests.get("https://us-central1-project-finance-400806.cloudfunctions.net/get-mongo-uri")
-        
     if response.status_code == 200:
         response.close()
     
     mongoHandler = mongo(response.text,'data')
+    
     return mongoHandler
 
 def getLatestRecords(records): #Don't cache data this, it will retrieve old data
