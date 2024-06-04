@@ -22,3 +22,8 @@ if st.button("Generate data"):
         st.json(result)
 else:
     st.code(" ")
+
+if st.button('test'):
+    st.write('do something..')
+else:
+    st.code(" ")
