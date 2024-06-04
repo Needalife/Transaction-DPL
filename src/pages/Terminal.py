@@ -41,17 +41,7 @@ if st.button("Generate data"):
 with st.form("my_form"):
     st.write("Bucket Lifecycle")
     age = st.number_input("Enter the object age")
-    bucket = st.selectbox("engineering_experience")
-
-   # Every form must have a submit button.
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        st.write("slider", age, "checkbox", bucket)
-       
-with st.form("my_form"):
-    st.write("Bucket Lifecycle")
-    age = st.number_input("Enter the object age")
-    bucket = st.selectbox("engineering_experience")
+    bucket = st.selectbox("Choose a bucket",("engineering_experience"))
     
     submitted = st.form_submit_button("set")
     if submitted:
