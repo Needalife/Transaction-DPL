@@ -2,10 +2,11 @@ import altair as alt,streamlit as st,pandas as pd, numpy as np # type: ignore
 import requests,os,sys,pymongo # type: ignore
 
 try:
-    from utils import mongo
-    from utils import gcp
+    from utils.mongo import *
+    from utils.gcp import *
 except Exception as e:
     print(e)
+    
 def connectMongo():
     response = requests.get("https://us-central1-project-finance-400806.cloudfunctions.net/get-mongo-uri")
     if response.status_code == 200:
