@@ -41,3 +41,14 @@ if st.session_state["button1"]:
         st.session_state["button2"] = not st.session_state["button2"]
     else:
         st.code(" ")
+
+st.write(
+    f"""
+    ## Session state:
+    {st.session_state["button1"]=}
+
+    {st.session_state["button2"]=}
+
+    {st.session_state["button3"]=}
+    """
+)
