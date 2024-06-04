@@ -3,6 +3,7 @@ import requests,os,sys,pymongo # type: ignore
 
 from src.utils import mongo
 from src.utils import gcp
+from src.utils.gcp import readMongoURI
 
 @st.cache_resource
 def connectMongo():
