@@ -13,5 +13,3 @@ class gcp:
             return response.text
         else:
             return response.status_code
-
-        
