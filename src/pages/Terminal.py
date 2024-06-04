@@ -35,12 +35,13 @@ else:
     st.code(" ")
 
 #Button 2
-if st.session_state["button1"]:
-    if st.button('test'):
+if st.button('test'):
+    if st.session_state["button1"]:
         st.write('do something..')
+        st.session_state['button1'] = st.session_state['button1']
         st.session_state["button2"] = not st.session_state["button2"]
-    else:
-        st.code(" ")
+else:
+    st.code(" ")
 
 st.write(
     f"""
