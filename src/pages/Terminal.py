@@ -41,13 +41,13 @@ if st.button("Generate data"):
 #Button 2: Set bucket life cycle
 if st.button('Set bucket life cycle'):
     with st.form("my_form"):
-        st.write("Inside the form")
+        st.write("Bucket lifecycle")
         slider_val = st.slider("Form slider")
         checkbox_val = st.checkbox("Form checkbox")
 
         # Every form must have a submit button.
         submitted = st.form_submit_button("Submit")
-        if submitted:
-            st.write("slider", slider_val, "checkbox", checkbox_val)
+    if submitted:
+        st.write("slider", slider_val, "checkbox", checkbox_val)
 
 st.write("Outside the form")
