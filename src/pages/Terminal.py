@@ -38,16 +38,14 @@ if st.button("Generate data"):
         st.success(f"Successfully pushed {len(result)} transactions to GCS")
         st.code(result)
 
-#Button 2: Set bucket life cycle
-if st.button('Set bucket life cycle'):
-    with st.form("my_form"):
-        st.write("Bucket lifecycle")
-        slider_val = st.slider("Form slider")
-        checkbox_val = st.checkbox("Form checkbox")
 
-        # Every form must have a submit button.
-        submitted = st.form_submit_button("Submit")
-if submitted:
-    st.write("slider", slider_val, "checkbox", checkbox_val)
+with st.form("my_form"):
+    st.write("Bucket Lifecycle")
+    age = st.number_input("Enter the object age")
+    bucket = st.selectbox("engineering_experience")
+    
+    submitted = st.form_submit_button("set")
+    if submitted:
+        invokeSetBucketLifeCycle(age,bucket)
 
-st.write("Outside the form")
+        
