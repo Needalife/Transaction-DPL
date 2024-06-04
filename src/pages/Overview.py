@@ -1,11 +1,7 @@
 import altair as alt,streamlit as st,pandas as pd, numpy as np # type: ignore
 import requests,os,sys,pymongo # type: ignore
+from utils.mongo import *
 
-try:
-    from utils.mongo import *
-    from utils.gcp import *
-except Exception as e:
-    print(e)
     
 @st.cache_resource
 def connectMongo():

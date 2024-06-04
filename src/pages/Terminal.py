@@ -1,6 +1,13 @@
 import streamlit as st #type:ignore
-import subprocess,requests #type:ignore
+import requests #type:ignore
+from pydantic import BaseModel #type:ignore
+import streamlit_pydantic as sp #type:ignore
 
+@st.cache_data
+class form(BaseModel):
+    age: int
+    bucket: str
+    
 # Function to execute cloud commands
 def invokeTransactionProducer():
     try:
@@ -38,6 +45,8 @@ if st.button("Generate data"):
         st.success(f"Successfully pushed {len(result)} transactions to GCS")
         st.code(result)
 
-# Button 2: Perform some action without reloading the page
+#Button 2: Set bucket life cycle
 if st.button('Set bucket life cycle'):
-    st.write('Do something..')
+    data = sp.pydantic_form(key="my_form", model=form)
+    if data:
+        st.json(data.json())
