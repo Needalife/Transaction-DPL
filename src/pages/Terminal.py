@@ -39,14 +39,14 @@ if st.button("Generate data"):
         st.code(result)
 
 with st.form("my_form"):
-   st.write("Inside the form")
-   slider_val = st.slider("Form slider")
-   checkbox_val = st.checkbox("Form checkbox")
+    st.write("Bucket Lifecycle")
+    age = st.number_input("Enter the object age")
+    bucket = st.selectbox("engineering_experience")
 
    # Every form must have a submit button.
-   submitted = st.form_submit_button("Submit")
-   if submitted:
-       st.write("slider", slider_val, "checkbox", checkbox_val)
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+        st.write("slider", age, "checkbox", bucket)
        
 with st.form("my_form"):
     st.write("Bucket Lifecycle")
