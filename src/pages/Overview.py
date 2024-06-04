@@ -6,7 +6,7 @@ from src.utils import gcp
 
 @st.cache_resource
 def connectMongo():
-    mongoHandler = mongo(gcp.readMongoURI(),'data')
+    mongoHandler = mongo(gcp().readMongoURI(),'data')
     return mongoHandler
 
 def getLatestRecords(records): #Don't cache data this, it will retrieve old data
