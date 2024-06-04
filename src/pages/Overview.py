@@ -2,8 +2,8 @@ import altair as alt,streamlit as st,pandas as pd, numpy as np # type: ignore
 import requests,os,sys,pymongo # type: ignore
 
 try:
-    from src.utils import mongo
-    from src.utils import gcp
+    from utils import mongo
+    from utils import gcp
 except Exception as e:
     print(e)
 def connectMongo():
