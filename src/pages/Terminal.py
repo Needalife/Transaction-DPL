@@ -1,8 +1,13 @@
 import streamlit as st #type:ignore
 import subprocess,requests #type:ignore
 
-st.title("Terminal")
-
+def sessionStateButtons(number_of_buttons:int):
+    i = 0
+    while i < number_of_buttons:
+        i += 1
+        if f"button{i}" not in st.session_state:
+            st.session_state[f"button{i}"] = False
+    
 # Function to execute cloud commands
 def invokeTransactionProducer():
     try:
@@ -12,6 +17,10 @@ def invokeTransactionProducer():
     
     except Exception as e:
         st.write(f"{e}")
+        
+st.title("Terminal")
+
+sessionStateButtons(2)
 
 if st.button("Generate data"):
     result = invokeTransactionProducer()
@@ -20,6 +29,7 @@ if st.button("Generate data"):
     else:
         st.success(f"Successfully push {len(result)} transactions to GCS")
         st.json(result)
+    st.session_state['button1'] = not st.session_state['button1']
 else:
     st.code(" ")
 
