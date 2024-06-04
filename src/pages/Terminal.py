@@ -22,18 +22,22 @@ st.title("Terminal")
 
 sessionStateButtons(2)
 
+#Button 1
 if st.button("Generate data"):
     result = invokeTransactionProducer()
     if result is None:
         st.error("Please try again later")
     else:
         st.success(f"Successfully push {len(result)} transactions to GCS")
-        st.json(result)
+        st.code(result)
     st.session_state['button1'] = not st.session_state['button1']
 else:
     st.code(" ")
 
-if st.button('test'):
-    st.write('do something..')
-else:
-    st.code(" ")
+#Button 2
+if st.session_state["button1"]:
+    if st.button('test'):
+        st.write('do something..')
+        st.session_state["button2"] = not st.session_state["button2"]
+    else:
+        st.code(" ")
