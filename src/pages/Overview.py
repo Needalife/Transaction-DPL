@@ -1,8 +1,8 @@
 import altair as alt,streamlit as st,pandas as pd, numpy as np # type: ignore
 import requests,os,sys,pymongo # type: ignore
 
-from utils import mongo
-from utils import gcp
+from src.utils import mongo
+from src.utils import gcp
 
 @st.cache_resource
 def connectMongo():
