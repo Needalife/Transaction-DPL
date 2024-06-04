@@ -10,7 +10,23 @@ def invokeTransactionProducer():
     
     except Exception as e:
         st.write(f"{e}")
-        
+
+@st.cache_data
+def invokeSetBucketLifeCycle(age,bucket):
+    try:
+        url = "https://us-central1-project-finance-400806.cloudfunctions.net/setBucketLifeCycle"
+
+        input_data = {"age": age,"bucket":bucket}
+
+        response = requests.post(url,json = input_data)
+
+        if response.status_code == 200:
+            st.success(f"{response.text}")
+        else:
+            st.error(f"Status code: {response.status_code}")
+    except Exception as e:
+        st.error(f"{e}")
+    
 st.title("Terminal")
 
 # Button 1: Generate Data
@@ -23,6 +39,5 @@ if st.button("Generate data"):
         st.code(result)
 
 # Button 2: Perform some action without reloading the page
-if st.button('Set bucket lifecycle'):
-    st.session_state['button2'] = not st.session_state['button2']
-st.write('After')
+if st.button('Set bucket life cycle'):
+    st.write('Do something..')
