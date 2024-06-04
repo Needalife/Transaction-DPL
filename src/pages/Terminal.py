@@ -40,11 +40,14 @@ if st.button("Generate data"):
 
 #Button 2: Set bucket life cycle
 if st.button('Set bucket life cycle'):
-    with st.form("bucket_form"):
-        st.write("Bucket Lifecycle")
-        age = st.number_input("Enter the object age")
-        bucket = st.selectbox("engineering_experience")
-        
-        submitted = st.form_submit_button("set")
-        if submitted:
-            invokeSetBucketLifeCycle(age,bucket)
+    try:
+        with st.form("my_form"):
+            st.write("Bucket Lifecycle")
+            age = st.number_input("Enter the object age")
+            bucket = st.selectbox("engineering_experience")
+            
+            submitted = st.form_submit_button("set")
+            if submitted:
+                invokeSetBucketLifeCycle(age,bucket)
+    except Exception as e:
+        print(e)
