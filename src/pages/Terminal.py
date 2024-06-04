@@ -1,16 +1,6 @@
 import streamlit as st #type:ignore
 import requests #type:ignore
-try:
-    from pydantic import BaseModel #type:ignore
-    import streamlit_pydantic as sp #type:ignore
-except Exception as e:
-    print(e)
 
-@st.cache_data
-class form(BaseModel):
-    age: int
-    bucket: str
-    
 # Function to execute cloud commands
 def invokeTransactionProducer():
     try:
@@ -50,6 +40,11 @@ if st.button("Generate data"):
 
 #Button 2: Set bucket life cycle
 if st.button('Set bucket life cycle'):
-    data = sp.pydantic_form(key="my_form", model=form)
-    if data:
-        st.json(data.json())
+    with st.form("bucket_form"):
+        st.write("Bucket Lifecycle")
+        age = st.number_input("Enter the object age")
+        bucket = st.selectbox("engineering_experience")
+        
+        submitted = st.form_submit_button("set")
+        if submitted:
+            invokeSetBucketLifeCycle(age,bucket)
