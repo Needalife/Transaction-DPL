@@ -48,13 +48,15 @@ def plotTransactionStatus(df):
 
 #UI start
 st.title("Overview")
+placeholder = st.empty()
 
 while True:
-    df = getLatestRecords(500)
-        
-    plotTransactionStatus(df)
+    with placeholder.container():
+        df = getLatestRecords(500)
+            
+        plotTransactionStatus(df)
 
-    st.subheader('Distribution')
+        st.subheader('Distribution')
 
 
 
