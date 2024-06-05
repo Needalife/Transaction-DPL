@@ -42,7 +42,7 @@ def invokeGetBucketLifeCycle(bucket):
     except Exception as e:
         st.error(f"{e}")
         
-st.title("Terminal")
+st.title("Bucket")
 
 #Generate Data
 if st.button("Generate data"):
