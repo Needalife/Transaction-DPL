@@ -40,19 +40,18 @@ def plotTransactionStatus(df):
             height=400
         ).interactive()
 
-        st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart,use_container_width=True)
     except Exception as e:
         st.error(f'Error occurred during: {e}', icon="🚨")
 
-# UI start
+#UI start
 st.set_page_config(layout="wide")
 st.title("Overview")
 placeholder = st.empty()
 
-if 'old_errors' not in st.session_state:
-    st.session_state.old_errors = 0
+old_errors = 0
 
-def fetch_and_display_data():
+while True:
     sum_records = connectMongo().getTotalRecords('raw') 
     
     df = getLatestRecords(500)
@@ -61,22 +60,21 @@ def fetch_and_display_data():
     successes = df[df['status'] == 'success'].shape[0]
     ongoing = df[df['status'] == 'ongoing'].shape[0]
     
+    err_diff = errors - old_errors
+    
     with placeholder.container():
-        st.dataframe(df)
         st.write(sum_records)
-        kp1, kp2, kp3 = st.columns(3)
+        kp1,kp2,kp3 = st.columns(3)
         
-        kp1.metric(label="Success ✅", value=int(successes))
-        kp2.metric(label="Ongoing ⏳", value=int(ongoing))
-        kp3.metric(label="Errors ❌", value=int(errors), delta=errors - st.session_state.old_errors)
+        kp1.metric(label="Success ✅",value=int(successes))
+        kp2.metric(label="Ongoing ⏳",value=int(ongoing))
+        kp3.metric(label="Errors ❌",value=int(errors),delta=err_diff)
             
         plotTransactionStatus(df)
 
-    st.session_state.old_errors = errors
-
-fetch_and_display_data()
-time.sleep(1)
-st.experimental_rerun()
+    old_errors = errors
+    
+    time.sleep(1)
 
 
 
