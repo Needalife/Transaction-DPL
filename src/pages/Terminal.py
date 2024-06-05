@@ -11,7 +11,6 @@ def invokeTransactionProducer():
     except Exception as e:
         st.write(f"{e}")
 
-@st.cache_data
 def invokeSetBucketLifeCycle(age,bucket):
     try:
         url = "https://us-central1-project-finance-400806.cloudfunctions.net/setBucketLifeCycle"
