@@ -10,5 +10,5 @@ st.write("# 👋")
 
 st.markdown(
     """
-    Yes
+    Beo ngu
     """)
