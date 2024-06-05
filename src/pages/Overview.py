@@ -61,9 +61,9 @@ while True:
         st.write(sum_records)
         kp1,kp2,kp3 = st.columns(3)
         
-        kp1.metric(label="Success",value=int(successes))
-        kp2.metric(label="Ongoing",value=int(ongoing))
-        kp3.metric(label="Errors",value=int(errors))
+        kp1.metric(label="Success ✅",value=int(successes))
+        kp2.metric(label="Ongoing ⏳",value=int(ongoing))
+        kp3.metric(label="Errors ❌",value=int(errors))
             
         plotTransactionStatus(df)
 
