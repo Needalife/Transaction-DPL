@@ -50,15 +50,21 @@ placeholder = st.empty()
 
 while True:
     sum_records = connectMongo().getTotalRecords('raw') 
+    st.write(sum_records)
+    
     df = getLatestRecords(500)
     
+    errors = df[df['status'] == 'error'].shape[0]
+    successes = df[df['status'] == 'success'].shape[0]
+    ongoing = df[df['status'] == 'ongoing'].shape[0]
+    
     with placeholder.container():
-        kp1,kp2 = st.columns(2)
+        kp1,kp2,kp3 = st.columns(3)
         
-        kp1.metric(label="Total Records",value=int(sum_records))
-        kp2.metric(label="Graph transactions",value=500)
-        
-        st.write(sum_records)    
+        kp1.metric(label="Success",value=int(successes))
+        kp2.metric(label="Ongoing",value=int(ongoing))
+        kp3.metric(label="Errors",value=int(errors))
+            
         plotTransactionStatus(df)
 
     time.sleep(1)
