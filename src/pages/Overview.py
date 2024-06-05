@@ -50,7 +50,6 @@ placeholder = st.empty()
 
 while True:
     sum_records = connectMongo().getTotalRecords('raw') 
-    st.write(sum_records)
     
     df = getLatestRecords(500)
     
@@ -59,6 +58,7 @@ while True:
     ongoing = df[df['status'] == 'ongoing'].shape[0]
     
     with placeholder.container():
+        st.write(sum_records)
         kp1,kp2,kp3 = st.columns(3)
         
         kp1.metric(label="Success",value=int(successes))
