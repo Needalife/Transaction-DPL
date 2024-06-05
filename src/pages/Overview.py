@@ -36,7 +36,7 @@ def plotTransactionStatus(df):
             color=alt.Color('status:N', scale=alt.Scale(domain=['error', 'ongoing', 'success'],
                                                         range=['#FF4B4B', '#FFD700', '#32CD32'])),
         ).properties(
-            width=800,
+            width='container',
             height=400
         ).interactive()
 
