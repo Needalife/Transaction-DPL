@@ -63,5 +63,5 @@ with st.form("my_form"):
     if submitted:
         invokeSetBucketLifeCycle(int(age),bucket)
     else:
-        st.magic("Current Rules:")
+        st.write("Current Rules:")
         invokeGetBucketLifeCycle(bucket)
