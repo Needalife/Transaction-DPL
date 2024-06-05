@@ -47,18 +47,17 @@ def plotTransactionStatus(df):
         st.error(f'Error occurred during: {e}', icon="🚨")
 
 #UI start
-st.button("Reload")
 st.title("Overview")
-number = st.slider("Number of records", 0, 700)
 
-df = getLatestRecords(number)
-    
-if st.checkbox('Show raw data'):
-    st.dataframe(df)
-    
-plotTransactionStatus(df)
+while True:
+    df = getLatestRecords(500)
+        
+    if st.checkbox('Show raw data'):
+        st.dataframe(df)
+        
+    plotTransactionStatus(df)
 
-st.subheader('Distribution')
+    st.subheader('Distribution')
 
 
 
