@@ -40,11 +40,12 @@ def plotTransactionStatus(df):
             height=400
         ).interactive()
 
-        st.altair_chart(chart)
+        st.altair_chart(chart,use_container_width=True)
     except Exception as e:
         st.error(f'Error occurred during: {e}', icon="🚨")
 
 #UI start
+st.set_page_config(layout="wide")
 st.title("Overview")
 placeholder = st.empty()
 
