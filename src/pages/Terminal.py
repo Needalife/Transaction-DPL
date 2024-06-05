@@ -45,7 +45,7 @@ def invokeGetBucketLifeCycle(bucket):
         
 st.title("Terminal")
 
-# Button 1: Generate Data
+#Generate Data
 if st.button("Generate data"):
     result = invokeTransactionProducer()
     if result is None:
@@ -53,7 +53,8 @@ if st.button("Generate data"):
     else:
         st.success(f"Successfully pushed {len(result)} transactions to GCS")
         st.code(result)
-
+        
+#Set data lifecycle
 with st.form("my_form"):
     st.write("Bucket Lifecycle")
     age = st.number_input("Enter object age lifecycle")
@@ -62,6 +63,6 @@ with st.form("my_form"):
     submitted = st.form_submit_button("set")
     if submitted:
         invokeSetBucketLifeCycle(int(age),bucket)
-    else:
-        st.write("Current Rules:")
-        invokeGetBucketLifeCycle(bucket)
+
+st.write("Current Rules:")
+invokeGetBucketLifeCycle(bucket)
