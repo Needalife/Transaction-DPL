@@ -51,6 +51,7 @@ placeholder = st.empty()
 
 while True:
     sum_records = connectMongo().getTotalRecords('raw') 
+    print(sum_records)
     df = getLatestRecords(500)
     
     with placeholder.container():
