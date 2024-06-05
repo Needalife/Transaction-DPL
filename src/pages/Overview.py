@@ -52,9 +52,6 @@ st.title("Overview")
 while True:
     df = getLatestRecords(500)
         
-    if st.checkbox('Show raw data'):
-        st.dataframe(df)
-        
     plotTransactionStatus(df)
 
     st.subheader('Distribution')
