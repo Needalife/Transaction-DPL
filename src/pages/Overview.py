@@ -41,7 +41,6 @@ def plotTransactionStatus(df):
         ).interactive()
 
         st.altair_chart(chart)
-        st.success('Successfuly retrieve new data', icon="✅")
     except Exception as e:
         st.error(f'Error occurred during: {e}', icon="🚨")
 
