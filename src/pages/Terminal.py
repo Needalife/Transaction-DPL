@@ -26,7 +26,23 @@ def invokeSetBucketLifeCycle(age,bucket):
             st.error(f"Status code: {response.status_code}")
     except Exception as e:
         st.error(f"{e}")
-    
+
+def invokeGetBucketLifeCycle(bucket):
+    try:
+        url = "https://us-central1-project-finance-400806.cloudfunctions.net/getBucketLifeCycleRule"
+
+        input_data = {"bucket":bucket}
+
+        response = requests.post(url,json = input_data)
+
+        if response.status_code == 200:
+            st.json(response.text.strip())
+        else:
+            st.error(f"Status code: {response.status_code}")
+
+    except Exception as e:
+        st.error(f"{e}")
+        
 st.title("Terminal")
 
 # Button 1: Generate Data
@@ -46,5 +62,5 @@ with st.form("my_form"):
     submitted = st.form_submit_button("set")
     if submitted:
         invokeSetBucketLifeCycle(int(age),bucket)
-
-        
+    else:
+        invokeGetBucketLifeCycle(bucket)
