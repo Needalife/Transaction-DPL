@@ -1,16 +1,6 @@
 import streamlit as st #type:ignore
 import requests #type:ignore
 
-# Function to execute cloud commands
-def invokeTransactionProducer():
-    try:
-        response = requests.get("https://us-central1-project-finance-400806.cloudfunctions.net/transaction-producer")
-        result = response.json()
-        return result
-    
-    except Exception as e:
-        st.write(f"{e}")
-
 def invokeSetBucketLifeCycle(age,bucket):
     try:
         url = "https://us-central1-project-finance-400806.cloudfunctions.net/setBucketLifeCycle"
@@ -44,15 +34,6 @@ def invokeGetBucketLifeCycle(bucket):
         
 st.title("Bucket")
 
-#Generate Data
-if st.button("Generate data"):
-    result = invokeTransactionProducer()
-    if result is None:
-        st.error("Please try again later")
-    else:
-        st.success(f"Successfully pushed {len(result)} transactions to GCS")
-        st.code(result)
-        
 #Set data lifecycle
 with st.form("my_form"):
     st.write("Bucket Lifecycle")
