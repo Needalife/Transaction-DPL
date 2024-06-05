@@ -1,5 +1,5 @@
 import altair as alt,streamlit as st,pandas as pd, numpy as np # type: ignore
-import requests,os,sys,pymongo # type: ignore
+import requests,os,sys,pymongo,time # type: ignore
 from utils.mongo import *
   
 @st.cache_resource
@@ -57,7 +57,7 @@ while True:
         st.write(sum_records)    
         plotTransactionStatus(df)
 
-
+    time.sleep(1)
 
 
 
