@@ -9,3 +9,7 @@ class mongo:
     def getNewestRecords(self,collection_name,number_of_records):
         collection = self.database[f'{collection_name}']
         return collection.find().sort('_id', -1).limit(number_of_records)
+
+    def getTotalRecords(self,collection_name):
+        collection = self.database[f'{collection_name}']
+        return collection.count_documents({})
