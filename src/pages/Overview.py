@@ -50,10 +50,14 @@ placeholder = st.empty()
 
 while True:
     sum_records = connectMongo().getTotalRecords('raw') 
-    print(sum_records)
     df = getLatestRecords(500)
     
     with placeholder.container():
+        kp1,kp2 = st.columns(2)
+        
+        kp1.metric(label="Total Records",value=int(sum_records))
+        kp2.metric(label="Graph transactions",value=500)
+        
         st.write(sum_records)    
         plotTransactionStatus(df)
 
