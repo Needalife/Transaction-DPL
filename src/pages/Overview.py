@@ -50,9 +50,10 @@ st.title("Overview")
 placeholder = st.empty()
 
 while True:
+    sum_records = connectMongo().getTotalRecords('raw') 
+    df = getLatestRecords(500)
+    
     with placeholder.container():
-        df = getLatestRecords(500)
-        sum_records = connectMongo().getTotalRecords('raw') 
         st.write(sum_records)    
         plotTransactionStatus(df)
 
