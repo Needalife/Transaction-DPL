@@ -1,9 +1,9 @@
 import time  # to simulate a real time data, time loop
 
-import numpy as np  # np mean, np random
-import pandas as pd  # read csv, df manipulation
-import plotly.express as px  # interactive charts
-import streamlit as st  # 🎈 data web app development
+import numpy as np  # type:ignore
+import pandas as pd # type:ignore
+import plotly.express as px  # type:ignore
+import streamlit as st  # type:ignore
 
 st.set_page_config(
     page_title="Real-Time Data Science Dashboard",
