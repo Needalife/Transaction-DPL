@@ -60,6 +60,8 @@ while True:
     successes = df[df['status'] == 'success'].shape[0]
     ongoing = df[df['status'] == 'ongoing'].shape[0]
     
+    err_diff = errors - old_errors
+    
     with placeholder.container():
         st.dataframe(df)
         st.write(sum_records)
@@ -67,7 +69,7 @@ while True:
         
         kp1.metric(label="Success ✅",value=int(successes))
         kp2.metric(label="Ongoing ⏳",value=int(ongoing))
-        kp3.metric(label="Errors ❌",value=int(errors),delta=errors-old_errors)
+        kp3.metric(label="Errors ❌",value=int(errors),delta=err_diff)
             
         plotTransactionStatus(df)
 
