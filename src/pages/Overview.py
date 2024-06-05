@@ -50,6 +50,8 @@ st.title("Overview")
 placeholder = st.empty()
 
 old_errors = 0
+old_successes = 0
+old_ongoing = 0
 
 while True:
     sum_records = connectMongo().getTotalRecords('raw') 
@@ -61,20 +63,24 @@ while True:
     ongoing = df[df['status'] == 'ongoing'].shape[0]
     
     err_diff = errors - old_errors
+    suc_diff = successes - old_successes
+    ong_diff = ongoing - old_ongoing
     
     with placeholder.container():
         st.write(sum_records)
         kp1,kp2,kp3 = st.columns(3)
         
-        kp1.metric(label="Success ✅",value=int(successes))
-        kp2.metric(label="Ongoing ⏳",value=int(ongoing))
+        kp1.metric(label="Success ✅",value=int(successes),delta=suc_diff)
+        kp2.metric(label="Ongoing ⏳",value=int(ongoing),delta=ong_diff)
         kp3.metric(label="Errors ❌",value=int(errors),delta=err_diff)
             
         plotTransactionStatus(df)
 
     old_errors = errors
+    old_successes = successes
+    old_ongoing = ongoing
     
-    time.sleep(30)
+    time.sleep(60)
 
 
 
