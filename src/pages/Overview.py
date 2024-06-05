@@ -1,8 +1,7 @@
 import altair as alt,streamlit as st,pandas as pd, numpy as np # type: ignore
 import requests,os,sys,pymongo # type: ignore
 from utils.mongo import *
-
-    
+  
 @st.cache_resource
 def connectMongo():
     response = requests.get("https://us-central1-project-finance-400806.cloudfunctions.net/get-mongo-uri")
@@ -53,10 +52,10 @@ placeholder = st.empty()
 while True:
     with placeholder.container():
         df = getLatestRecords(500)
-            
+        sum_records = connectMongo().getTotalRecords('raw') 
+        st.write(sum_records)    
         plotTransactionStatus(df)
 
-        st.subheader('Distribution')
 
 
 
