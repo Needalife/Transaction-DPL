@@ -27,7 +27,7 @@ def plotTransactionStatus(df):
 
         # Transform data to count each status per timestamp
         status_count = df.groupby(['timestamp', 'status']).size().reset_index(name='count')
-
+        status_count['timestamp'] = status_count['timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
         # Plotting the stacked bar chart
         st.subheader('Transaction Status')
         chart = alt.Chart(status_count).mark_bar().encode(
