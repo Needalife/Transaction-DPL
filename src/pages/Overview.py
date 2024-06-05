@@ -63,7 +63,6 @@ while True:
     err_diff = errors - old_errors
     
     with placeholder.container():
-        st.dataframe(df)
         st.write(sum_records)
         kp1,kp2,kp3 = st.columns(3)
         
