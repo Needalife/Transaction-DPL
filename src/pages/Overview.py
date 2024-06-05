@@ -58,7 +58,7 @@ if st.checkbox('Show raw data'):
     
 plotTransactionStatus(df)
 
-st.subheader('Type')
+st.subheader('Distribution')
 
 
 
