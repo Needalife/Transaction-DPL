@@ -49,6 +49,8 @@ st.set_page_config(layout="wide")
 st.title("Overview")
 placeholder = st.empty()
 
+old_errors = 0
+
 while True:
     sum_records = connectMongo().getTotalRecords('raw') 
     
@@ -65,10 +67,12 @@ while True:
         
         kp1.metric(label="Success ✅",value=int(successes))
         kp2.metric(label="Ongoing ⏳",value=int(ongoing))
-        kp3.metric(label="Errors ❌",value=int(errors))
+        kp3.metric(label="Errors ❌",value=int(errors),delta=errors-old_errors)
             
         plotTransactionStatus(df)
 
+    old_errors = errors
+    
     time.sleep(1)
 
 
