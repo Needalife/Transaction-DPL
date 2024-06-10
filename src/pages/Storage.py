@@ -70,3 +70,7 @@ with st.form("cluster"):
     maxRecord = st.slider("Set max number of record:",1000,20000,10000)
     st.write(getClusterRule())
     
+    submitted = st.form_submit_button("set")
+    if submitted:
+        pass
+    
