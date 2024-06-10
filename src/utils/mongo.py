@@ -16,5 +16,5 @@ class mongo:
     
     def getRule(self):
         collection = self.database['rule']
-        return collection.find_one()
+        return collection.find_one({}, {"_id": 0})
         
