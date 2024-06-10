@@ -33,7 +33,6 @@ def invokeGetBucketLifeCycle(bucket):
     except Exception as e:
         st.error(f"{e}")
 
-@st.cache_resource
 def connectMongo():
     response = requests.get("https://us-central1-project-finance-400806.cloudfunctions.net/get-mongo-uri")
     if response.status_code == 200:
