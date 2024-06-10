@@ -72,16 +72,13 @@ st.title("Cluster")
 with st.form("cluster"):
     st.write("Cluster lifecycle")
     
-    rule = getClusterRule()
-    
-    maxRecord = st.slider("Set max number of record:",1000,20000,rule["condition"]["max_records"])
-    amount = st.slider("Records delete:",10,100,rule["amount"])
+    maxRecord = st.slider("Set max number of record:",1000,20000,getClusterRule()["condition"]["max_records"])
+    amount = st.slider("Records delete:",10,100,getClusterRule()["amount"])
     
     submitted = st.form_submit_button("set")
     if submitted:
         setClusterRule(maxRecord,amount)
     
     st.write("Current Rules:")
-    rule = getClusterRule()
-    st.json(rule)
+    st.json(getClusterRule())
     
