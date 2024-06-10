@@ -82,5 +82,5 @@ with st.form("cluster"):
         setClusterRule(maxRecord,amount)
     
     st.write("Current Rules:")
-    st.json(rule)
+    st.json(getClusterRule())
     
