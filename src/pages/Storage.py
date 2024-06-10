@@ -76,9 +76,10 @@ with st.form("cluster"):
     amount = st.slider("Records delete:",10,100,getClusterRule()["amount"])
     
     submitted = st.form_submit_button("set")
+    st.write("Current Rules:")
+    st.json(getClusterRule())
     if submitted:
         setClusterRule(maxRecord,amount)
     
-    st.write("Current Rules:")
-    st.json(getClusterRule())
+    
     
