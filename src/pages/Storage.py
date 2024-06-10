@@ -78,8 +78,10 @@ with st.form("cluster"):
     submitted = st.form_submit_button("set")
     st.write("Current Rules:")
     st.json(getClusterRule())
+    
     if submitted:
         setClusterRule(maxRecord,amount)
+        st.json(getClusterRule())
     
     
     
