@@ -47,9 +47,10 @@ def getClusterRule():
     job = connectMongo()
     return job.getRule()
 
-def setClusterRule():
-    return
-    
+def setClusterRule(max_record,amount_delete):
+    job = connectMongo()
+    job.setRule(max_record,amount_delete)
+
 st.title("Bucket")
 
 #Set bucket object lifecycle
@@ -78,7 +79,7 @@ with st.form("cluster"):
     
     submitted = st.form_submit_button("set")
     if submitted:
-        setClusterRule()
+        setClusterRule(maxRecord,amount)
     
     st.write("Current Rules:")
     st.json(rule)

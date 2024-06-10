@@ -17,4 +17,10 @@ class mongo:
     def getRule(self):
         collection = self.database['rule']
         return collection.find_one({}, {"_id": 0})
+    
+    def setRule(self,max_record,amount_delete):
+        collection = self.database['rule']
+        query_filter = {"action": "Delete"}
+        update_operation = {"$set": {"amount": amount_delete, "condition.max_records": max_record}}
         
+        collection.update_one(query_filter,update_operation)
