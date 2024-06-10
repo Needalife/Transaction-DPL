@@ -31,7 +31,7 @@ def invokeGetBucketLifeCycle(bucket):
 
     except Exception as e:
         st.error(f"{e}")
-        
+
 st.title("Bucket")
 
 #Set data lifecycle
@@ -46,3 +46,5 @@ with st.form("my_form"):
 
     st.write("Current Rules:")
     invokeGetBucketLifeCycle(bucket)
+
+st.title("Cluster")
