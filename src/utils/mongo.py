@@ -13,3 +13,8 @@ class mongo:
     def getTotalRecords(self,collection_name):
         collection = self.database[f'{collection_name}']
         return collection.count_documents({})
+    
+    def getRule(self):
+        collection = self.database['rule']
+        return collection.find_one()
+        
