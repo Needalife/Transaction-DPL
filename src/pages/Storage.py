@@ -26,4 +26,4 @@ rule = rule.find_one({})
 
 with collection.watch() as stream:
     for changes in stream:
-        st.write(changes)
+        st.write(changes['operationType'])
