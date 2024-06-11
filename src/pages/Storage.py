@@ -29,7 +29,6 @@ rule = database['rule']
 rule = rule.find_one({})
 
 #UI start
-placeholder = st.empty()
 
 # Create a button to start watching the collection
 if st.button("Proc"):
