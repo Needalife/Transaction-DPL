@@ -1,5 +1,5 @@
 import altair as alt,streamlit as st,pandas as pd, numpy as np # type: ignore
-import requests,os,sys,pymongo,time # type: ignore
+import requests,time # type: ignore
 from utils.mongo import *
   
 @st.cache_resource
