@@ -21,8 +21,7 @@ def watch_stream():
     collection = database['raw']
     #UI start
     with collection.watch() as stream:
-        for change in stream:
-            st.code(change)
+        st.write_stream(stream)
 
 if st.button("Watch Collection"):
     watch_stream()
