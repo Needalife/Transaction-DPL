@@ -23,7 +23,7 @@ def plotTransactionStatus(df):
         status_mapping = {'error': -1, 'ongoing': 0, 'success': 1}
         df['status_num'] = df['status'].map(status_mapping)
 
-        df['timestamp'] = pd.to_datetime(df['timestamp']).dt.floor('T')
+        df['timestamp'] = pd.to_datetime(df['timestamp']).dt.floor('min')
 
         # Transform data to count each status per timestamp
         status_count = df.groupby(['timestamp', 'status']).size().reset_index(name='count')
