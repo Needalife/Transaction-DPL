@@ -24,10 +24,9 @@ collection = database['raw']
 rule = database['rule']
 rule = rule.find_one({})
 
-import time
+placeholder = st.empty()
 
-with st.empty():
-    for seconds in range(60):
-        st.write(f"⏳ {seconds} seconds have passed")
-        time.sleep(1)
-    st.write("✔️ 1 minute over!")
+with placeholder.container():
+    with collection.watch() as stream:
+        for changes in stream:
+            st.write(changes['operationType'])
