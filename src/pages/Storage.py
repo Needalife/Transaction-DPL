@@ -13,7 +13,7 @@ def connectMongo():
     
     return mongoHandler
 
-
+@st.experimental_memo
 def watch_stream():
     uri = "mongodb+srv://gauakanguyen:AOMhWKFdmlSO6kcU@transactiondata.wecxmij.mongodb.net/?retryWrites=true&w=majority&appName=transactionData"
     client = MongoClient(uri)
@@ -23,7 +23,8 @@ def watch_stream():
     #UI start
     with collection.watch() as stream:
         for change in stream:
-            st.write_stream(change)
+            st.write(change)
 
-watch_stream()
+if st.button("Watch Collection"):
+    watch_stream()
             
