@@ -13,11 +13,7 @@ def connectMongo():
     
     return mongoHandler
 
-def watch_collection(collection):
-    with collection.watch() as stream:
-        for change in stream:
-            st.write(change)
-            return
+
 
 uri = "mongodb+srv://gauakanguyen:AOMhWKFdmlSO6kcU@transactiondata.wecxmij.mongodb.net/?retryWrites=true&w=majority&appName=transactionData"
 client = MongoClient(uri)
@@ -29,6 +25,6 @@ rule = database['rule']
 rule = rule.find_one({})
 
 #UI start
-
-while True:
-    watch_collection(collection)
+with collection.watch() as stream:
+    for change in stream:
+        st.write(change)
