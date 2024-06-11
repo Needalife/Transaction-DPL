@@ -21,8 +21,9 @@ def watch_stream():
     collection = database['raw']
     #UI start
     with collection.watch() as stream:
-        st.write_stream(stream)
-
+        data = [change for change in stream]
+        df = pd.DataFrame(data)
+        return df
 if st.button("Watch Collection"):
-    watch_stream()
-            
+    df = watch_stream()
+    st.dataframe(df)
