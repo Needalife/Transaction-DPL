@@ -25,19 +25,18 @@ rule = rule.find_one({})
 
 placeholder = st.empty()
 
-with placeholder.container():
 
-    insert_count = 0
-    delete_count = 0
+with collection.watch() as stream:
     
-    with collection.watch() as stream:
-        for changes in stream:
-            if changes['operationType'] == 'insert':
-                insert_count += 1
-            elif changes['operationType'] == 'delete':
-                delete_count += 1
+    for changes in stream:
+        insert_count = 0
+        delete_count = 0
+        if changes['operationType'] == 'insert':
+            insert_count += 1
+        elif changes['operationType'] == 'delete':
+            delete_count += 1
             
-            placeholder.empty()
+        with placeholder.container():
             st.write(f"Ins ops: {insert_count}")
             st.write(f"Del ops: {delete_count}")
             
