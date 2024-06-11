@@ -14,10 +14,11 @@ def connectMongo():
     return mongoHandler
 
 @st.experimental_memo()
-def watch_collection():
+def watch_collection(collection):
     with collection.watch() as stream:
         for change in stream:
             st.write(change)
+            return
 
 uri = "mongodb+srv://gauakanguyen:AOMhWKFdmlSO6kcU@transactiondata.wecxmij.mongodb.net/?retryWrites=true&w=majority&appName=transactionData"
 client = MongoClient(uri)
@@ -30,7 +31,5 @@ rule = rule.find_one({})
 
 #UI start
 
-# Create a button to start watching the collection
-if st.button("Proc"):
-    watch_collection()
-        
+while True:
+    watch_collection(collection)
