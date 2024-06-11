@@ -22,7 +22,7 @@ def watch_stream():
     #UI start
     with collection.watch() as stream:
         for change in stream:
-            st.write(change)
+            st.code(change)
 
 if st.button("Watch Collection"):
     watch_stream()
