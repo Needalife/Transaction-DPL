@@ -13,7 +13,6 @@ def connectMongo():
     
     return mongoHandler
 
-@st.experimental_memo()
 def watch_collection(collection):
     with collection.watch() as stream:
         for change in stream:
