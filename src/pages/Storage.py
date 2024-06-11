@@ -13,8 +13,6 @@ def connectMongo():
     
     return mongoHandler
 
-#UI start
-
 uri = "mongodb+srv://gauakanguyen:AOMhWKFdmlSO6kcU@transactiondata.wecxmij.mongodb.net/?retryWrites=true&w=majority&appName=transactionData"
 client = MongoClient(uri)
 
@@ -23,10 +21,21 @@ collection = database['raw']
 
 rule = database['rule']
 rule = rule.find_one({})
+#UI start
 
 placeholder = st.empty()
 
 with placeholder.container():
+
+    insert_count = 0
+    delete_count = 0
+    
     with collection.watch() as stream:
         for changes in stream:
-            st.write(changes['operationType'])
+            if changes['operationType'] == 'insert':
+                insert_count += 1
+            elif changes['operationType'] == 'delete':
+                delete_count += 1
+        
+        st.write(f"Ins ops: {insert_count}")
+        st.write(f"Del ops: {delete_count}")
