@@ -13,6 +13,12 @@ def connectMongo():
     
     return mongoHandler
 
+@st.experimental_memo(show_spinner=False)
+def watch_collection():
+    with collection.watch() as stream:
+        for change in stream:
+            st.write(change)
+
 uri = "mongodb+srv://gauakanguyen:AOMhWKFdmlSO6kcU@transactiondata.wecxmij.mongodb.net/?retryWrites=true&w=majority&appName=transactionData"
 client = MongoClient(uri)
 
@@ -21,23 +27,11 @@ collection = database['raw']
 
 rule = database['rule']
 rule = rule.find_one({})
-#UI start
 
+#UI start
 placeholder = st.empty()
 
-
-with collection.watch() as stream:
-    
-    for changes in stream:
-        insert_count = 0
-        delete_count = 0
-        if changes['operationType'] == 'insert':
-            insert_count += 1
-        elif changes['operationType'] == 'delete':
-            delete_count += 1
-            
-        with placeholder.container():
-            st.write(f"Ins ops: {insert_count}")
-            st.write(f"Del ops: {delete_count}")
-            
+# Create a button to start watching the collection
+if st.button("Proc"):
+    watch_collection()
         
