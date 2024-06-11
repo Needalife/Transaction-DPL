@@ -36,6 +36,7 @@ with placeholder.container():
                 insert_count += 1
             elif changes['operationType'] == 'delete':
                 delete_count += 1
+            st.write(f"Ins ops: {insert_count}")
+            st.write(f"Del ops: {delete_count}")
+            placeholder.empty()
         
-        st.write(f"Ins ops: {insert_count}")
-        st.write(f"Del ops: {delete_count}")
