@@ -12,19 +12,3 @@ def connectMongo():
     mongoHandler = mongo(response.text,'data')
     
     return mongoHandler
-
-@st.cache_data
-def watch_stream():
-    uri = "mongodb+srv://gauakanguyen:AOMhWKFdmlSO6kcU@transactiondata.wecxmij.mongodb.net/?retryWrites=true&w=majority&appName=transactionData"
-    client = MongoClient(uri)
-
-    database = client['data']
-    collection = database['raw']
-    #UI start
-    with collection.watch() as stream:
-        data = [change for change in stream]
-        df = pd.DataFrame(data)
-        return df
-if st.button("Watch Collection"):
-    df = watch_stream()
-    st.dataframe(df)
