@@ -13,6 +13,7 @@ def connectMongo():
     
     return mongoHandler
 
+@st.cache_data
 def watch_stream():
     uri = "mongodb+srv://gauakanguyen:AOMhWKFdmlSO6kcU@transactiondata.wecxmij.mongodb.net/?retryWrites=true&w=majority&appName=transactionData"
     client = MongoClient(uri)
