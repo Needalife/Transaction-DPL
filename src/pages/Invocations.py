@@ -31,12 +31,14 @@ while True:
     df_pivot = df_counts.pivot(index='time', columns='function', values='count').fillna(0)
 
     with placeholder.container():
-        # Display first and last time and their difference
         if not df.empty:
+            fig_col1,fig_col2 = st.columns(2)
             st.write(f"Last: {df['time'].iloc[0] - df['time'].iloc[-1]} minutes")
+                
+            # Plotting the line chart
+            with fig_col1:
+                st.line_chart(df_pivot)
+            
             st.dataframe(df)
-
-        # Plotting the line chart
-        st.line_chart(df_pivot)
         
     time.sleep(0.1)
