@@ -1,4 +1,4 @@
-import pandas as pd, json,requests,streamlit as st,time #type:ignore
+import pandas as pd, json,requests,streamlit as st,time,numpy as np #type:ignore
 
 def getNewData(rows):
     input_data = {'rows':rows}
@@ -19,12 +19,12 @@ placeholder = st.empty()
 
 while True:
     df = getNewData(100)
-    u = [i for i in df.function.unique()]
     
-    #chart_data = pd.DataFrame(,columns=[])
+    #chart_data = pd.DataFrame(,columns=[i for i in df.function.unique()])
     with placeholder.container():
-        st.write(type(u[0]))
+        st.write()
         st.dataframe(df)
+        st.dataframe(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
 
         
     time.sleep(1)
