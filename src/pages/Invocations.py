@@ -21,6 +21,7 @@ while True:
     df = getNewData(100)
 
     with placeholder.container():
-
+        st.area_chart(df)
         st.dataframe(df)
-        time.sleep(1)
+        
+    time.sleep(1)
