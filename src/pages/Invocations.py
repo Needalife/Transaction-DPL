@@ -15,6 +15,8 @@ def getNewData(rows):
         print(result.status_code)
         st.error(f'Error occurred: {result.status_code}', icon="🚨")
 
+#UI start
+st.set_page_config(layout="wide")
 st.title("Function Status")
 placeholder = st.empty()
 while True:
