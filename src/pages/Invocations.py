@@ -1,12 +1,11 @@
 import pandas as pd, json,requests,streamlit as st,time,numpy as np #type:ignore
 
-def getNewData(rows):
+def getNewData(rows:int) -> pd.DataFrame:
     input_data = {'rows':rows}
     result = requests.post('https://us-central1-project-finance-400806.cloudfunctions.net/getFunctionLogs',json=input_data)
 
     if result.status_code == 200:
         data = json.loads(result.text)
-        data = pd.DataFrame(data)
         return pd.DataFrame(data)
     else:
         print(result.status_code)
@@ -22,7 +21,7 @@ while True:
     
     #chart_data = pd.DataFrame(,columns=[i for i in df.function.unique()])
     with placeholder.container():
-        st.write()
+        st.write(type(df['latency']))
         st.dataframe(df)
         st.dataframe(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
 
