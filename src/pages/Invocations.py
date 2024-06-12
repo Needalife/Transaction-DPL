@@ -1,11 +1,8 @@
-import pandas as pd, json,requests,streamlit as st #type:ignore
-
-
-url = 'https://us-central1-project-finance-400806.cloudfunctions.net/getFunctionLogs'
+import pandas as pd, json,requests,streamlit as st,time #type:ignore
 
 def getNewData(rows):
     input_data = {'rows':rows}
-    result = requests.post(url,json=input_data)
+    result = requests.post('https://us-central1-project-finance-400806.cloudfunctions.net/getFunctionLogs',json=input_data)
 
     if result.status_code == 200:
         data = json.loads(result.text)
@@ -22,7 +19,8 @@ placeholder = st.empty()
 
 while True:
     df = getNewData(100)
-    show_df = st.checkbox("Show dataframe?")
+
     with placeholder.container():
-        if show_df:
-            st.dataframe(df)
+
+        st.dataframe(df)
+        time.sleep(1)
