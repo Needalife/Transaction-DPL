@@ -21,7 +21,8 @@ while True:
     df = getNewData(100)
 
     with placeholder.container():
-        st.area_chart(df)
+        st.write(df.function.unique())
         st.dataframe(df)
+
         
     time.sleep(1)
