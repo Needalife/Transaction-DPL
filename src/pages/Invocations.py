@@ -28,6 +28,6 @@ while True:
         chart_data.set_index('time', inplace=True)
 
         # Plotting the line chart
-        st.line_chart(chart_data,columns=[i for i in df.function.unique()])
+        st.line_chart(df['time'].iloc[0] - df['time'].iloc[-1],columns=[i for i in df.function.unique()])
         
     time.sleep(1)
