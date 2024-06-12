@@ -23,7 +23,7 @@ while True:
     
     #chart_data = pd.DataFrame(,columns=[])
     with placeholder.container():
-        st.write(u[0])
+        st.write(type(u[0]))
         st.dataframe(df)
 
         
