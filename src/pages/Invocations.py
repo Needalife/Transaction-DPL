@@ -1,8 +1,12 @@
-import pandas as pd, json,requests,streamlit as st,time,numpy as np #type:ignore
+import pandas as pd
+import json
+import requests
+import streamlit as st
+import time
 
-def getNewData(rows:int) -> pd.DataFrame:
-    input_data = {'rows':rows}
-    result = requests.post('https://us-central1-project-finance-400806.cloudfunctions.net/getFunctionLogs',json=input_data)
+def getNewData(rows: int) -> pd.DataFrame:
+    input_data = {'rows': rows}
+    result = requests.post('https://us-central1-project-finance-400806.cloudfunctions.net/getFunctionLogs', json=input_data)
 
     if result.status_code == 200:
         data = json.loads(result.text)
@@ -10,24 +14,33 @@ def getNewData(rows:int) -> pd.DataFrame:
     else:
         print(result.status_code)
         st.error(f'Error occurred: {result.status_code}', icon="🚨")
+        return pd.DataFrame()  # return an empty DataFrame in case of error
 
-#UI start
+# UI start
 st.set_page_config(layout="wide")
 st.title("Function Status")
 placeholder = st.empty()
 
 while True:
     df = getNewData(100)
+    if df.empty:
+        continue  # skip if no data is returned
+
     df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S')
-    #chart_data = pd.DataFrame(,columns=[i for i in df.function.unique()])
+
+    # Group by time and function, then count the occurrences
+    df_counts = df.groupby(['time', 'function']).size().reset_index(name='count')
+
+    # Pivot the DataFrame to have functions as columns and times as index
+    df_pivot = df_counts.pivot(index='time', columns='function', values='count').fillna(0)
+
     with placeholder.container():
-        st.write(df['time'].iloc[0] - df['time'].iloc[-1])
-        st.dataframe(df)
-        st.line_chart(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
-        chart_data = df[['time', 'latency']]
-        chart_data.set_index('time', inplace=True)
+        # Display first and last time and their difference
+        if not df.empty:
+            st.write(f"Time difference: {df['time'].iloc[-1] - df['time'].iloc[0]}")
+            st.dataframe(df)
 
         # Plotting the line chart
-        st.line_chart(df['time'].iloc[0] - df['time'].iloc[-1],columns=[i for i in df.function.unique()])
+        st.line_chart(df_pivot)
         
     time.sleep(1)
