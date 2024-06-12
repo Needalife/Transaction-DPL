@@ -33,7 +33,9 @@ while True:
     with placeholder.container():
         if not df.empty:
             fig_col1,fig_col2 = st.columns(2)
-            st.write(f"Last: {df['time'].iloc[0] - df['time'].iloc[-1]} minutes")
+            time_diff = df['time'].iloc[0] - df['time'].iloc[-1]
+            minutes, seconds = divmod(time_diff.total_seconds(), 60)
+            st.write(f"Last: {int(minutes)} minutes and {int(seconds)} seconds")
                 
             # Plotting the line chart
             with fig_col1:
