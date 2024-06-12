@@ -19,9 +19,11 @@ placeholder = st.empty()
 
 while True:
     df = getNewData(100)
-
+    u = df.function.unique()
+    
+    #chart_data = pd.DataFrame(,columns=[])
     with placeholder.container():
-        st.write(df.function.unique())
+        st.write([u])
         st.dataframe(df)
 
         
