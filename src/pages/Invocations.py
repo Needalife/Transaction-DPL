@@ -45,6 +45,9 @@ while True:
             with fig_col1:
                 st.line_chart(df_pivot)
             
+            with fig_col2:
+                st.write("Chart here")
+                
             st.dataframe(df)
         
     time.sleep(0.1)
