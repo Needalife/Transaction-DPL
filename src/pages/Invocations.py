@@ -21,7 +21,7 @@ while True:
     
     #chart_data = pd.DataFrame(,columns=[i for i in df.function.unique()])
     with placeholder.container():
-        st.write(df['time'].iloc[0])
+        st.write(type(df['time'].iloc[0]))
         st.dataframe(df)
         st.dataframe(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
 
