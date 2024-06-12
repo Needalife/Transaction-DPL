@@ -26,7 +26,7 @@ while True:
     if df.empty:
         continue  # skip if no data is returned
 
-    df['time'] = pd.to_datetime(df['time'], format='%M:%S')
+    df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S')
 
     # Group by time and function, then count the occurrences
     df_counts = df.groupby(['time', 'function']).size().reset_index(name='count')
@@ -35,12 +35,12 @@ while True:
     df_pivot = df_counts.pivot(index='time', columns='function', values='count').fillna(0)
 
     with placeholder.container():
-        
+        st.write(df_pivot)
         # Display first and last time and their difference
         if not df.empty:
             st.write(f"Time difference: {df['time'].iloc[-1] - df['time'].iloc[0]}")
             st.dataframe(df)
-        st.write(df_pivot)
+
         # Plotting the line chart
         st.line_chart(df_pivot)
         
