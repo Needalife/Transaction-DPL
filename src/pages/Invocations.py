@@ -22,7 +22,7 @@ while True:
     if df.empty:
         continue  # skip if no data is returned
 
-    df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S')
+    df['time'] = pd.to_datetime(df['time'], format='%c')
 
     # Group by time and function, then count the occurrences
     df_counts = df.groupby(['time', 'function']).size().reset_index(name='count')
