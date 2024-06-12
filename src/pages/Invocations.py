@@ -1,8 +1,4 @@
-import pandas as pd
-import json
-import requests
-import streamlit as st
-import time
+import pandas as pd,json,requests,streamlit as st,time #type:ignore
 
 def getNewData(rows: int) -> pd.DataFrame:
     input_data = {'rows': rows}
