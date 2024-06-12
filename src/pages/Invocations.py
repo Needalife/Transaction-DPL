@@ -22,7 +22,7 @@ st.title("Function Status")
 placeholder = st.empty()
 
 while True:
-    df = getNewData(10)
+    df = getNewData(20)
     if df.empty:
         continue  # skip if no data is returned
 
