@@ -12,6 +12,11 @@ def getNewData(rows: int) -> pd.DataFrame:
         st.error(f'Error occurred: {result.status_code}', icon="🚨")
         return pd.DataFrame()  # return an empty DataFrame in case of error
 
+def showTimeDiff(df:pd.DataFrame) -> None:
+    time_diff = df['time'].iloc[0] - df['time'].iloc[-1]
+    minutes, seconds = divmod(time_diff.total_seconds(), 60)
+    st.write(f"Last: {int(minutes)} minutes and {int(seconds)} seconds")
+
 # UI start
 st.set_page_config(layout="wide")
 st.title("Function Status")
@@ -33,10 +38,9 @@ while True:
     with placeholder.container():
         if not df.empty:
             fig_col1,fig_col2 = st.columns(2)
-            time_diff = df['time'].iloc[0] - df['time'].iloc[-1]
-            minutes, seconds = divmod(time_diff.total_seconds(), 60)
-            st.write(f"Last: {int(minutes)} minutes and {int(seconds)} seconds")
-                
+            
+            showTimeDiff(df=df)
+            
             # Plotting the line chart
             with fig_col1:
                 st.line_chart(df_pivot)
