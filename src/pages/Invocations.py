@@ -21,9 +21,9 @@ while True:
     
     #chart_data = pd.DataFrame(,columns=[i for i in df.function.unique()])
     with placeholder.container():
-        st.write(type(df['time'].iloc[0]))
+        st.write(df['time'].iloc[0] - df['time'].iloc[-1])
         st.dataframe(df)
-        st.dataframe(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
+        st.line_chart(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
 
         
     time.sleep(1)
