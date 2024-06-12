@@ -37,9 +37,8 @@ while True:
 
     with placeholder.container():
         if not df.empty:
-            fig_col1,fig_col2 = st.columns(2)
-            
             showTimeDiff(df=df)
+            fig_col1,fig_col2 = st.columns(2)
             
             # Plotting the line chart
             with fig_col1:
