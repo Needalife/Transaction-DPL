@@ -24,6 +24,10 @@ while True:
         st.write(df['time'].iloc[0] - df['time'].iloc[-1])
         st.dataframe(df)
         st.line_chart(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
+        chart_data = df[['time', 'latency']]
+        chart_data.set_index('time', inplace=True)
 
+        # Plotting the line chart
+        st.line_chart(chart_data)
         
     time.sleep(1)
