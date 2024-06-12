@@ -18,10 +18,10 @@ placeholder = st.empty()
 
 while True:
     df = getNewData(100)
-    
+    df['time'] = pd.to_datetime(df['time'], format='%H:%M:%S')
     #chart_data = pd.DataFrame(,columns=[i for i in df.function.unique()])
     with placeholder.container():
-        #st.write(int(df['time'].iloc[0]) - int(df['time'].iloc[-1]))
+        st.write(df['time'].iloc[0] - df['time'].iloc[-1])
         st.dataframe(df)
         st.line_chart(pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"]))
 
