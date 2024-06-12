@@ -19,8 +19,10 @@ def getNewData(rows):
 st.set_page_config(layout="wide")
 st.title("Function Status")
 placeholder = st.empty()
+
 while True:
     df = getNewData(100)
-    
+    show_df = st.checkbox("Show dataframe?")
     with placeholder.container():
-        st.dataframe(df)
+        if show_df:
+            st.dataframe(df)
