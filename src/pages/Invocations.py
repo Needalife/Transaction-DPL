@@ -57,9 +57,5 @@ while True:
             
             st.altair_chart(chart, use_container_width=True)
             
-            st.dataframe(df)
-                
-            
-        
     time.sleep(0.1)
                      
