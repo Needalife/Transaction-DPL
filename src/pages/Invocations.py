@@ -22,9 +22,8 @@ st.set_page_config(layout="wide")
 st.title("Function Status")
 placeholder = st.empty()
 
-rows = st.slider("Newest invocations",20,100,80)
-
 while True:
+    rows = st.slider("Newest invocations",20,100,80)
     df = getNewData(rows)
     if df.empty:
         continue  # skip if no data is returned
