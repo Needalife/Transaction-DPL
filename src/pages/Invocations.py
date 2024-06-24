@@ -53,7 +53,8 @@ while True:
             ).properties(
                 width=800,
                 height=400
-            )
+            ).interactive()
+            
             st.altair_chart(chart, use_container_width=True)
             
             st.dataframe(df)
