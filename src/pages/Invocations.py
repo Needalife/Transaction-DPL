@@ -40,7 +40,7 @@ while True:
             
             # Plotting the line chart
             st.write('**Invocations**')
-            st.line_chart(df_pivot)
+            st.area_chart(df_pivot)
 
             st.dataframe(df)
                 
