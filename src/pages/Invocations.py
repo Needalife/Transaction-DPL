@@ -1,5 +1,5 @@
 import pandas as pd,json,requests,streamlit as st,time #type:ignore
-import matplotlib.pyplot as plt #type:ignore
+import altair as alt #type:ignore
 
 def getNewData(rows: int) -> pd.DataFrame:
     input_data = {'rows': rows}
