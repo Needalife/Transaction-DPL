@@ -37,15 +37,12 @@ while True:
     with placeholder.container():
         if not df.empty:
             showTimeDiff(df=df)
-            fig_col1,fig_col2 = st.columns(2)
             
             # Plotting the line chart
-            with fig_col1:
-                st.write('Latency')
-                st.line_chart(df_pivot)
-            
-            with fig_col2:
-                st.dataframe(df)
+            st.write('Latency')
+            st.line_chart(df_pivot)
+
+            st.dataframe(df)
                 
             
         
