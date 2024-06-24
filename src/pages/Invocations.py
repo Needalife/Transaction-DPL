@@ -8,7 +8,6 @@ def getNewData(rows: int) -> pd.DataFrame:
         data = json.loads(result.text)
         return pd.DataFrame(data)
     else:
-        print(result.status_code)
         st.error(f'Error occurred: {result.status_code}', icon="🚨")
         return pd.DataFrame()  # return an empty DataFrame in case of error
 
@@ -45,7 +44,7 @@ while True:
                 st.line_chart(df_pivot)
             
             with fig_col2:
-                st.write("Chart here")
+                st.line_chart(df_pivot)
                 
             st.dataframe(df)
         
