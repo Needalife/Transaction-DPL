@@ -43,6 +43,7 @@ while True:
             st.line_chart(df_pivot)
 
             st.dataframe(df_pivot)
+            st.dataframe(df)
                 
             
         
