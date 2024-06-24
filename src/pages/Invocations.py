@@ -45,8 +45,8 @@ while True:
                 st.line_chart(df_pivot)
             
             with fig_col2:
-                st.line_chart(df_pivot)
+                st.dataframe(df)
                 
-            st.dataframe(df)
+            
         
     time.sleep(0.1)
