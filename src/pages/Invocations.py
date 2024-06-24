@@ -38,10 +38,12 @@ while True:
         if not df.empty:
             showTimeDiff(df=df)
             
-            # Plotting the line chart
+            # Plotting area chart
             st.write('**Invocations**')
             st.area_chart(df_pivot)
 
+            #Plot
+            st.write('**Latency**')
             st.dataframe(df)
                 
             
