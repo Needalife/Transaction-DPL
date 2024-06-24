@@ -42,7 +42,7 @@ while True:
             st.write('**Latency**')
             st.line_chart(df_pivot)
 
-            st.dataframe(df)
+            st.dataframe(df_pivot)
                 
             
         
