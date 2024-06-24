@@ -1,4 +1,5 @@
 import pandas as pd,json,requests,streamlit as st,time #type:ignore
+import matplotlib.pyplot as plt #type:ignore
 
 def getNewData(rows: int) -> pd.DataFrame:
     input_data = {'rows': rows}
@@ -39,7 +40,7 @@ while True:
             showTimeDiff(df=df)
             
             # Plotting area chart
-            st.write('**Invocations**')
+            st.write('**Invocations/Minutes**')
             st.area_chart(df_pivot)
 
             #Plot
@@ -49,3 +50,4 @@ while True:
             
         
     time.sleep(0.1)
+                     
