@@ -54,6 +54,7 @@ while True:
                 width=800,
                 height=400
             )
+            st.altair_chart(chart, use_container_width=True)
             
             st.dataframe(df)
                 
