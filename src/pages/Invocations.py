@@ -41,6 +41,7 @@ while True:
             
             # Plotting the line chart
             with fig_col1:
+                st.write('Latency')
                 st.line_chart(df_pivot)
             
             with fig_col2:
