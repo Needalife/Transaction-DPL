@@ -23,20 +23,19 @@ st.title("Function Status")
 placeholder = st.empty()
 
 while True:
-    rows = st.slider("Newest invocations",20,100,80)
-    df = getNewData(rows)
-    if df.empty:
-        continue  # skip if no data is returned
-
-    df['time'] = pd.to_datetime(df['time'], format='%c')
-
-    # Group by time and function, then count the occurrences
-    df_counts = df.groupby(['time', 'function']).size().reset_index(name='count')
-
-    # Pivot the DataFrame to have functions as columns and times as index
-    df_pivot = df_counts.pivot(index='time', columns='function', values='count').fillna(0)
-
     with placeholder.container():
+        rows = st.slider("Newest invocations",20,100,80)
+        df = getNewData(rows)
+        if df.empty:
+            continue  # skip if no data is returned
+
+        df['time'] = pd.to_datetime(df['time'], format='%c')
+
+        # Group by time and function, then count the occurrences
+        df_counts = df.groupby(['time', 'function']).size().reset_index(name='count')
+
+        # Pivot the DataFrame to have functions as columns and times as index
+        df_pivot = df_counts.pivot(index='time', columns='function', values='count').fillna(0)
         if not df.empty:
             showTimeDiff(df=df)
             
