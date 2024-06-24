@@ -25,7 +25,7 @@ placeholder = st.empty()
 rows = st.select_slider("Newest invocations:",20,100,80)
 
 while True:
-    df = getNewData(80)
+    df = getNewData(rows)
     if df.empty:
         continue  # skip if no data is returned
 
