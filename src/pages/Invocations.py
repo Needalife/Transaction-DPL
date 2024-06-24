@@ -1,5 +1,5 @@
-import pandas as pd,json,requests,streamlit as st,time #type:ignore
-import altair as alt #type:ignore
+import pandas as pd,json,requests,time #type:ignore
+import altair as alt,streamlit as st #type:ignore
 
 def getNewData(rows: int) -> pd.DataFrame:
     input_data = {'rows': rows}
@@ -45,6 +45,16 @@ while True:
 
             #Plot
             st.write('**Latency**')
+            # Create the Altair chart
+            chart = alt.Chart(df).mark_line().encode(
+                x='timestamp:T',
+                y='latency:Q',
+                color='function:N'
+            ).properties(
+                width=800,
+                height=400
+            )
+            
             st.dataframe(df)
                 
             
