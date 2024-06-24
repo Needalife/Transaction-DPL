@@ -46,7 +46,7 @@ while True:
             #Plot altair chart
             st.write('**Latency**')
             # Create the Altair chart
-            chart = alt.Chart(df).mark_point().encode(
+            chart = alt.Chart(df).mark_line().encode(
                 x='time:T',
                 y='latency:Q',
                 color='function:N'
