@@ -39,7 +39,7 @@ while True:
             showTimeDiff(df=df)
             
             # Plotting the line chart
-            st.write('**Latency**')
+            st.write('**Invocations**')
             st.line_chart(df_pivot)
 
             st.dataframe(df_pivot)
