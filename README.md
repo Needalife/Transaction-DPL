@@ -7,7 +7,8 @@ Welcome to the Engineering Experience Course project repository! This project wi
 This project is a data pipeline for managing a bank's transactional data. The pipeline utilizes various technologies to ensure data integrity, perform validation checks, and provide visualization capabilities.
 
 - **Data Storage and Processing:**
-  - **Google Cloud Storage:** Used to store the bank's transactional data.
+  - **Google Cloud Storage:** Used to store the bank's raw transactional data.
+  - **MongoDB:** Store each transaction as a document for each transaction in an object of GCS
   - **Google Cloud Function:** Ensures that the data is properly deposited into the Google Cloud Storage bucket.
 
 - **Data Validation and Notification:**
@@ -26,6 +27,7 @@ The following technologies are used in this project:
 
 - **Google Cloud Storage**
 - **Google Cloud Function**
+- **MongoDB**
 
 ### Data Validation and Notification
 
@@ -37,19 +39,11 @@ The following technologies are used in this project:
 - **Looker Studio**
 - **Streamlit**
 
-## Getting Started
+## Streamlit integration as the admin view:
 
-To get started with the project, follow these steps:
+[Visit the Streamlit Dashboard](https://engineering-experience-gviin2cbcluvttvqhstftc.streamlit.app)
 
-1. **Clone this repository:** Use `git clone https://github.com/Needalife/Engineering-Experience.git`.
-2. **Explore the directories:** Navigate through the project directories to understand the structure and components.
-3. **Setup Google Cloud Services:** If you intend to use Google Cloud Storage and Google Cloud Function, ensure you have the necessary permissions and credentials set up.
-4. **Install required dependencies:** If using Streamlit for visualization, ensure you have the required dependencies installed.
-
-## Feedback
-
-Any feedback is valuable, there are no such thing as a bad feedback!
-
+For more information on this project progression, please visit the reports section.
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
