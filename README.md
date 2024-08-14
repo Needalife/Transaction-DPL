@@ -1,4 +1,4 @@
-# Engineering Experience Course: Bank Transaction Data Pipeline
+# Engineering Experience: Bank Transaction Data Pipeline
 
 Welcome to the Engineering Experience Course project repository! This project will illustrate a data pipeline for a bank's transactional data.
 
@@ -26,8 +26,11 @@ The following technologies are used in this project:
 ### Data Storage and Processing
 
 - **Google Cloud Storage**
+![Cloud Storage](images/cloud_storage.png)
 - **Google Cloud Function**
+![Cloud Functions](images/cloud_functions.png)
 - **MongoDB**
+![MongoDB](images/mongodb.png)
 
 ### Data Validation and Notification
 
