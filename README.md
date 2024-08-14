@@ -43,6 +43,10 @@ The following technologies are used in this project:
 
 [Visit the Streamlit Dashboard](https://engineering-experience-gviin2cbcluvttvqhstftc.streamlit.app)
 ![Transaction Dashboard](images/streamlit_home.png)
+![Function Invocations Dashboard](images/streamlit_invocations.png)
+![Bucket Rule Modifier](images/streamlit_bucket.png)
+![Cluster Rule Modifier](images/streamlit_cluster.png)
+
 
 For more information on this project progression, please visit the reports section.
 ## License
