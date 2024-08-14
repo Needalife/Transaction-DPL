@@ -42,6 +42,7 @@ The following technologies are used in this project:
 ## Streamlit integration as the admin view:
 
 [Visit the Streamlit Dashboard](https://engineering-experience-gviin2cbcluvttvqhstftc.streamlit.app)
+![Transaction Dashboard](images/streamlit_home.png)
 
 For more information on this project progression, please visit the reports section.
 ## License
