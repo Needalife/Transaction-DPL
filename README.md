@@ -1,7 +1,5 @@
 # Transaction Data Pipeline
 
-Welcome to the Engineering Experience project repository! This project will illustrate a simple data pipeline for a bank's transactional data.
-
 ## Project Description
 
 This project is a data pipeline for managing a bank's transactional data. The pipeline utilizes various technologies to ensure data integrity, perform validation checks, and provide visualization capabilities.
