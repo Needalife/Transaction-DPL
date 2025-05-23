@@ -1,4 +1,4 @@
-# Engineering Experience: Bank Transaction Data Pipeline
+# Transaction Data Pipeline
 
 Welcome to the Engineering Experience project repository! This project will illustrate a simple data pipeline for a bank's transactional data.
 
